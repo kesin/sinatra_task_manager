@@ -4,4 +4,4 @@ form action='/' method='POST'
 h2 My Tasks
 ul.tasks
   - @tasks.each do |task|
-    li.task = task.name
+    == slim :task,locals: { task: task }

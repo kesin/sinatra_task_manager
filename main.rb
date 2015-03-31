@@ -23,7 +23,14 @@ post '/' do
   redirect '/'
 end
 
-get '/:task' do
-  @task = params[:task].split('-').join(' ').capitalize
-  slim :task
+delete '/task/:id' do
+  Task.get(params[:id]).destroy
+  redirect '/'
+end
+
+put '/task/:id' do
+  task = Task.get(params[:id])
+  task.completed_at = task.completed_at.nil? ? Time.now : nil
+  task.save
+  redirect '/'
 end

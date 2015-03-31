@@ -1,2 +1,11 @@
-h2 My Tasks
-= @task
+li.task(id = task.id)
+  = task.name
+  form.update action="/task/#{task.id}" method='POST'
+    input type='hidden' name='_method' value='PUT'
+    - if task.completed_at.nil?
+      input type='submit' title='complete tasks' value='Complete'
+    - else
+      input type='submit' title='Uncomplete tasks' value='✓'
+  form.delete action="/task/#{task.id}" method='POST'
+    input type='hidden' name='_method' value='DELETE'
+    input type='submit' name='&times;' title='delete tasks' value='delete'
