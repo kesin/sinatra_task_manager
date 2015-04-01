@@ -9,6 +9,14 @@ class Task
   property :id, Serial
   property :name, String, :required => true
   property :completed_at, DateTime
+  belongs_to :list
+end
+
+class List
+  include DataMapper::Resource
+  property :id,           Serial
+  property :name,         String, :required => true
+  has n, :tasks, :constraint => :destroy
 end
 
 DataMapper.finalize

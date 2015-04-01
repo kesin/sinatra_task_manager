@@ -1,4 +1,4 @@
-li.task(id = task.id)
+li.task id = task.id class= "#{task.completed_at.nil? ? '' : 'completed'}"
   = task.name
   form.update action="/task/#{task.id}" method='POST'
     input type='hidden' name='_method' value='PUT'
