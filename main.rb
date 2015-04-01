@@ -22,12 +22,12 @@ end
 DataMapper.finalize
 
 get '/' do
-  @tasks = Task.all
+  @lists = List.all(:order => [:name])
   slim :index
 end
 
-post '/' do
-  Task.create params[:task]
+post '/:id' do
+  List.get(params[:id]).tasks.create params[:task]
   redirect '/'
 end
 
@@ -40,5 +40,15 @@ put '/task/:id' do
   task = Task.get(params[:id])
   task.completed_at = task.completed_at.nil? ? Time.now : nil
   task.save
+  redirect '/'
+end
+
+post '/new/list' do
+  List.create params[:list]
+  redirect '/'
+end
+
+delete '/list/:id' do
+  List.get(params[:id]).destroy
   redirect '/'
 end

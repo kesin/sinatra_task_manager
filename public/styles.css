@@ -5,7 +5,6 @@
 .tasks{
     padding:0;
     list-style:none;
-    width:400px;
 }
 
 .task{
@@ -39,4 +38,16 @@ form.delete input{
     background:none;
     cursor:pointer;
     border:none;
+}
+.lists{
+    padding:0;
+    list-style:none;
+    overflow:hidden;
+}
+
+.list{
+    float: left;
+    width:23%;
+    margin:0 1%;
+    border-top:solid 5px #ccc;
 }
