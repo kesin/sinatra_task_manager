@@ -6,6 +6,7 @@ li.task id = task.id class= "#{task.completed_at.nil? ? '' : 'completed'}"
       input type='submit' title='complete tasks' value='Complete'
     - else
       input type='submit' title='Uncomplete tasks' value='✓'
+      span Completed
   form.delete action="/task/#{task.id}" method='POST'
     input type='hidden' name='_method' value='DELETE'
-    input type='submit' name='&times;' title='delete tasks' value='delete'
+    input type='submit' name='&times;' title='delete tasks' value='delete' class='delete'

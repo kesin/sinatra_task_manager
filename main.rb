@@ -21,6 +21,10 @@ end
 
 DataMapper.finalize
 
+get '/styles.css' do
+  scss :styles
+end
+
 get '/' do
   @lists = List.all(:order => [:name])
   slim :index
