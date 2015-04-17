@@ -24,8 +24,12 @@ get '/' do
 end
 
 post '/:id' do
-  List.find(params[:id]).tasks.create params[:task]
-  redirect '/'
+  @task = List.find(params[:id]).tasks.new params[:task]
+  if @task.save
+    redirect '/'
+  else
+    return 'Create task failed !'
+  end
 end
 
 delete '/task/:id' do
@@ -45,7 +49,7 @@ post '/new/list' do
   if @list.save
     redirect '/'
   else
-    return 'failed'
+    return 'Create list failed!'
   end
 end
 
