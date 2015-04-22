@@ -2,16 +2,6 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'slim'
 
-# set :database, {adapter: "sqlite3", database: "development.db"}
-
-ActiveRecord::Base.establish_connection(
-    :adapter  => "mysql2",
-    :host     => "localhost",
-    :username => "root",
-    :password => "",
-    :database => "sinatra_test"
-)
-
 class Task < ActiveRecord::Base
   belongs_to :lists
   validates_presence_of :name
