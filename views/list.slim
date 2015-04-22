@@ -4,7 +4,7 @@ li.list
     input type="text" name="task[name]"
     input type="submit" value='Add task under this list' class='grey_button'
   ul.tasks
-    - list.tasks.each do |task|
+    - list.tasks.order(:completed_at).each do |task|
       == slim :task, locals: { task: task}
   form.destroy action="/list/#{list.id}" method="POST"
     input type="hidden" name="_method" value="DELETE"
