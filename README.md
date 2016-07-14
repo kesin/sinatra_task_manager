@@ -2,6 +2,7 @@
 
 A small app to manage your tasks
 
+![demo](https://github.com/kesin/sinatra_task_manager/raw/master/public/task_manager.png)
 
 ### How to Run
 	```shell
