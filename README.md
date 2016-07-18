@@ -15,7 +15,7 @@ A small app to manage your tasks
 
 #### 2015.4.17
 
-     change ORG from datamapper to activerecord.
+     change ORM from datamapper to activerecord.
      
 #### 2016.7.14
 
